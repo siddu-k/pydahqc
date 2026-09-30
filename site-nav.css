@@ -1,0 +1,60 @@
+/* ==========================================================================
+   QUANTUM CODERS // SHARED SITE NAV (single source for every page)
+   HUD instrument-bar header, mobile overlay menu and toast. Loaded by
+   index.html (via pro.css @import), event.html and all team pages.
+   ========================================================================== */
+
+.site-header {
+  z-index: 10050 !important;
+  background: rgba(10,10,11,0.88) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.16) !important;
+  height: 68px !important;
+}
+.site-header .brand-title { color: #fff !important; }
+.site-header .brand-subtitle { color: rgba(255,255,255,0.55) !important; }
+.desktop-nav .nav-link { color: rgba(255,255,255,0.65) !important; }
+.desktop-nav .nav-link:hover, .desktop-nav .nav-link.active { color: #fff !important; }
+.desktop-nav .nav-link::after { background: #FF2B2B !important; }
+.site-header #nav-btn-find-pass,
+.site-header #btn-open-find-pass {
+  background: transparent !important; color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.35) !important; border-radius: 4px !important;
+  box-shadow: none !important;
+}
+.site-header #nav-btn-find-pass:hover,
+.site-header #btn-open-find-pass:hover {
+  border-color: #FF2B2B !important; color: #FF5A5A !important; background: transparent !important;
+}
+.site-header .nav-btn-join {
+  background: #FF2B2B !important; color: #fff !important;
+  border: 1px solid #FF2B2B !important; border-radius: 4px !important; box-shadow: none !important;
+}
+.site-header .nav-btn-join:hover { background: #fff !important; border-color: #fff !important; color: #111 !important; }
+.nav-mobile-pydah-pill, .mobile-overlay-pydah-pill { background: #fff !important; }
+.menu-trigger { border: 1px solid rgba(255,255,255,0.3) !important; }
+.menu-trigger span { background: #fff !important; }
+.mobile-nav-overlay { background-color: #0F1626 !important; }
+.mobile-nav-overlay .mobile-nav-link { color: #fff !important; }
+.mobile-nav-quick-actions { margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.toast-notice { border-radius: 8px !important; }
+
+/* ==========================================================================
+   SHARED MOBILE OPTIMIZATION (every page loads this file)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .member-dossier-section { padding-top: calc(var(--nav-height) + 1rem) !important; }
+  .dossier-name { font-size: 1.6rem !important; }
+  .member-breadcrumb-bar { gap: 0.75rem !important; }
+  .event-hero-banner-wrap { height: 230px !important; }
+  .event-capacity-card { padding: 1.1rem 1rem !important; }
+  .pass-body { padding: 1.4rem 1.1rem !important; }
+  .admin-modal-backdrop { padding: 1rem 0.6rem !important; }
+  .admin-modal-backdrop .admin-modal-box { max-width: 100% !important; }
+}
+@media (max-width: 560px) {
+  .pass-field-grid { grid-template-columns: 1fr !important; }
+  .dcard-info-grid { grid-template-columns: 1fr !important; gap: 0.8rem !important; }
+  .dossier-quote { font-size: 1.05rem !important; }
+}

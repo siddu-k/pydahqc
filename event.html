@@ -10,13 +10,14 @@
   <!-- Google Fonts Preconnect & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800;900&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
 
   <!-- QR Code Engine (Client-Side Rendering) -->
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
-  <!-- Master Stylesheet -->
+  <!-- Master Stylesheet + shared site nav -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="site-nav.css">
 
   <style>
     /* Dedicated Event Page Specific Extensions */
@@ -225,6 +226,125 @@
     .ev-warn.ev-stop { background: #ef4444; color: #fff; }
     .ev-warn.ev-big { width: 54px; height: 54px; border-radius: 14px; font-size: 1.8rem; }
 
+    /* HUD light registration panel (matches main-site theme) */
+    #register-section { margin: 2rem 0 !important; }
+    #register-section .section-tag { color: #FF2B2B !important; }
+    #register-section .section-tag::before { background: #FF2B2B !important; }
+    #register-section .section-title-huge { color: #111214 !important; font-family: 'Unbounded', sans-serif; font-weight: 800; }
+    #register-section .section-subtitle { color: #4A4E55 !important; }
+    #ev-gallery-section h2 { color: #111214 !important; }
+    #ev-gallery-section .section-tag { color: #FF2B2B !important; }
+    #register-section .section-title-huge { font-family: 'Unbounded', sans-serif; font-weight: 800; }
+    #register-section .section-title-huge .outline-text { -webkit-text-stroke: 0; color: #FF2B2B; }
+    #registration-form-box {
+      background: #fff !important; border: 1px solid #111214 !important;
+      border-radius: 14px !important; box-shadow: 5px 5px 0 #111214;
+      padding: 1.5rem !important; overflow: hidden;
+    }
+    #registration-form-box::before {
+      content: 'EVENT INTAKE // SECURE PASS'; display: block;
+      font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.2em;
+      color: #FF2B2B; background: #F4F5F7; border-bottom: 1px solid #111214;
+      margin: -1.5rem -1.5rem 1.25rem -1.5rem; padding: 0.6rem 1.5rem;
+    }
+    #registration-form-box .form-label {
+      color: #111214 !important; font-family: var(--font-mono); font-size: 0.7rem;
+      font-weight: 700; letter-spacing: 0.12em; display: block; margin-bottom: 0.35rem;
+    }
+    #registration-form-box .editorial-input,
+    #registration-form-box .editorial-select {
+      color: #111214 !important; background: #F7F8FA !important;
+      border: 1px solid rgba(17,18,20,0.3) !important; border-radius: 8px !important;
+      padding: 0.7rem 0.9rem !important; width: 100%; box-sizing: border-box;
+    }
+    #registration-form-box .editorial-input:focus,
+    #registration-form-box .editorial-select:focus {
+      border-color: #FF2B2B !important; background: #fff !important;
+    }
+    #registration-form-box .editorial-select option { color: #111214; }
+    #registration-form-box .btn-brutalist {
+      background: #FF2B2B !important; border-color: #FF2B2B !important; color: #fff !important;
+      border-radius: 8px !important; box-shadow: 3px 3px 0 #111214 !important;
+    }
+    #registration-form-box .btn-brutalist:hover {
+      background: #111214 !important; border-color: #111214 !important; color: #fff !important;
+    }
+    #registration-form-box .btn-brutalist:disabled { opacity: 0.6; }
+    #waitlist-notice-banner { background: #FFFBEB !important; color: #92400E !important; border-color: #D97706 !important; }
+    #deadline-closed-banner { background: #FEF2F2 !important; color: #991B1B !important; border-color: #DC2626 !important; }
+    #reg-error-msg { background: #FEF2F2 !important; color: #B91C1C !important; border-radius: 6px; }
+    .ev-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    @media (max-width: 640px) {
+      .ev-grid-2 { grid-template-columns: 1fr !important; }
+      #registration-form-box { padding: 1.5rem 1.1rem !important; }
+      #registration-form-box::before { margin: -1.5rem -1.1rem 1.25rem -1.1rem; padding: 0.7rem 1.1rem; }
+    }
+
+    /* Whole-page HUD light theme */
+    body.halftone-bg {
+      background-color: #0A0A0B;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .ev-panel {
+      background-color: #E9EAED; color: #111214;
+      background-image:
+        linear-gradient(rgba(17,18,20,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17,18,20,0.05) 1px, transparent 1px);
+      background-size: 26px 26px;
+      border: 1px solid #111214; border-radius: 18px;
+      padding: 1.25rem; box-shadow: 8px 8px 0 rgba(0,0,0,0.55);
+    }
+    #event-content-view.ev-panel { margin-bottom: 2rem; }
+    #event-loading-view, #event-error-view { color: #111214 !important; }
+    #event-loading-view div, #event-error-view p { color: #4A4E55 !important; }
+    #event-error-view h2 { color: #111214 !important; }
+    .event-capacity-card {
+      background: #F5F6F8 !important; border: 1px solid #111214 !important;
+      box-shadow: 4px 4px 0 #111214; padding: 1rem 1.25rem !important; margin: 1.25rem 0 !important;
+    }
+    .capacity-num-large { color: #111214 !important; }
+    .capacity-num-total { color: #5B6572 !important; }
+    #ev-capacity-card .capacity-progress-wrap > div { color: #4A4E55 !important; }
+    .event-meta-grid { gap: 0.75rem !important; margin: 1.25rem 0 !important; }
+    .event-meta-item {
+      background: #fff !important; border: 1px solid rgba(17,18,20,0.16) !important;
+      border-radius: 10px !important; box-shadow: 0 4px 12px rgba(15,22,38,0.06);
+      padding: 0.85rem 1rem !important;
+    }
+    .event-meta-label { color: #FF2B2B !important; }
+    .event-meta-value { color: #111214 !important; }
+    .ev-desc-card {
+      background: #fff !important; border: 1px solid rgba(17,18,20,0.16) !important;
+      border-radius: 12px !important; box-shadow: 0 4px 12px rgba(15,22,38,0.06);
+      padding: 1.4rem !important; margin: 1.25rem 0 !important;
+    }
+    .ev-desc-card h3 { color: #111214 !important; }
+    .ev-desc-card p { color: #3C4757 !important; }
+    #pass-success-view > h2 { color: #111214 !important; }
+    #pass-success-view > p { color: #4A4E55 !important; }
+    @media (max-width: 640px) {
+      .ev-panel { padding: 1.25rem 1rem !important; border-radius: 14px !important; }
+    }
+
+    /* Event pass follows home HUD light theme */
+    .event-pass-card {
+      background: #fff !important; border: 1.5px solid #111214 !important;
+      box-shadow: 5px 5px 0 #111214 !important;
+    }
+    .pass-tear-header { background: #F4F5F7 !important; border-bottom: 2px dashed #111214 !important; }
+    .pass-tear-header::before, .pass-tear-header::after { background: #fff !important; border: 1px solid #111214; }
+    #pass-display-event-name { color: #4A4E55 !important; }
+    #pass-display-student-name { color: #111214 !important; font-family: 'Unbounded', sans-serif !important; font-size: 1.25rem !important; }
+    #pass-display-rid { color: #D9232E !important; }
+    .pass-field-grid { border-top: 1px solid #111214 !important; border-bottom: 1px solid #111214 !important; }
+    .pass-f-label { color: #D9232E !important; }
+    .pass-f-val { color: #111214 !important; }
+    .pass-qr-box { border: 1.5px solid #111214 !important; }
+    .pass-foot-note { color: rgba(17,18,20,0.5) !important; }
+
     /* Print media styles */
     @media print {
       body * {
@@ -259,30 +379,29 @@
   <!-- Header -->
   <header class="site-header" id="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="Quantum Coders Home" data-cursor="HOME">
+      <a href="index.html" class="brand-link" aria-label="Quantum Coders Home">
         <img src="assets/logo.png" alt="Quantum Coders Logo" class="brand-logo-img">
-        <div class="brand-text-block">
+        <span class="brand-text-block">
           <span class="brand-title">QUANTUM CODERS</span>
-          <span class="brand-subtitle">// PYDAH COLLEGE OF ENGINEERING</span>
-        </div>
-        <div class="brand-divider" aria-hidden="true"></div>
-        <div class="brand-college-pill" title="Pydah College of Engineering">
-          <img src="images/Pydah%20Logo.png" alt="Pydah College of Engineering" class="brand-college-logo">
-        </div>
+          <span class="brand-subtitle">PYDAH COLLEGE OF ENGINEERING</span>
+        </span>
       </a>
 
       <nav class="desktop-nav" aria-label="Primary Navigation">
-        <a href="index.html#home" class="nav-link" data-cursor="GO">Home</a>
-        <a href="index.html#calendar" class="nav-link" data-cursor="GO">Calendar</a>
-        <a href="index.html#gallery" class="nav-link" data-cursor="GO">Gallery</a>
-        <a href="index.html#team" class="nav-link" data-cursor="GO">Core Team</a>
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#team" class="nav-link">Team</a>
+        <a href="index.html#calendar" class="nav-link active">Events</a>
         <button type="button" class="btn-brutalist btn-secondary btn-sm" id="btn-open-find-pass">
-          <svg class="ev-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:-2px"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg> Find My Pass
+          <svg class="ev-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:-2px"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg> Find Pass
         </button>
       </nav>
 
       <div class="nav-mobile-actions">
-        <button class="menu-trigger" id="menu-trigger" aria-label="Toggle Navigation Menu">
+        <span class="nav-mobile-pydah-pill" title="Pydah College of Engineering">
+          <img src="images/Pydah%20Logo.png" alt="Pydah College of Engineering" class="nav-mobile-pydah-logo">
+        </span>
+        <button class="menu-trigger" id="menu-trigger" aria-label="Toggle Navigation Menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -292,22 +411,26 @@
   <!-- Mobile Nav Overlay -->
   <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
     <div class="mobile-nav-top-row">
-      <div class="mobile-overlay-pydah-pill">
+      <span class="mobile-overlay-pydah-pill">
         <img src="images/Pydah%20Logo.png" alt="Pydah College of Engineering" class="mobile-overlay-pydah-logo">
-      </div>
-      <button class="mobile-nav-close-btn" id="mobile-nav-close">✕</button>
+      </span>
+      <button class="mobile-nav-close-btn" id="mobile-nav-close" aria-label="Close Navigation Menu">✕</button>
     </div>
     <ul class="mobile-nav-list">
-      <li><a href="index.html#home" class="mobile-nav-link"><span class="nav-num">01</span> Home</a></li>
-      <li><a href="index.html#calendar" class="mobile-nav-link"><span class="nav-num">02</span> Calendar</a></li>
-      <li><a href="index.html#gallery" class="mobile-nav-link"><span class="nav-num">03</span> Gallery</a></li>
-      <li><a href="index.html#team" class="mobile-nav-link"><span class="nav-num">04</span> Core Team</a></li>
+      <li><a href="index.html#home" class="mobile-nav-link" data-nav-close><span class="nav-num">01</span> Home</a></li>
+      <li><a href="index.html#about" class="mobile-nav-link" data-nav-close><span class="nav-num">02</span> About</a></li>
+      <li><a href="index.html#team" class="mobile-nav-link" data-nav-close><span class="nav-num">03</span> Team</a></li>
+      <li><a href="index.html#calendar" class="mobile-nav-link" data-nav-close><span class="nav-num">04</span> Events</a></li>
     </ul>
+    <div class="mobile-nav-quick-actions">
+      <button type="button" class="btn-brutalist btn-secondary btn-sm" id="mobile-btn-open-find-pass">Find Pass</button>
+    </div>
+    <div class="mobile-nav-footer"><span>QUANTUM CODERS // 2026</span><span>CREATE • CONNECT • LEAD</span></div>
   </div>
 
   <main style="padding-top: 6.5rem; min-height: 85vh;">
     <!-- Loading Skeleton View -->
-    <div class="container" id="event-loading-view" style="padding: 4rem 1rem; text-align: center;">
+    <div class="container ev-panel" id="event-loading-view" style="padding: 4rem 1rem; text-align: center;">
       <div class="loading-spinner" style="margin: 0 auto 1.5rem; width: 44px; height: 44px; border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--color-blue); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
       <div style="font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: 0.15em; color: var(--color-gray);">
         LOADING CADRE EVENT ARCHIVE...
@@ -315,7 +438,7 @@
     </div>
 
     <!-- Error State View -->
-    <div class="container" id="event-error-view" style="display: none; padding: 4rem 1rem; text-align: center;">
+    <div class="container ev-panel" id="event-error-view" style="display: none; padding: 4rem 1rem; text-align: center;">
       <div style="margin-bottom: 1rem;"><span class="ev-warn ev-big">!</span></div>
       <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 0.75rem;">EVENT NOT FOUND</h2>
       <p style="color: var(--color-gray); margin-bottom: 1.5rem;" id="event-error-msg">
@@ -327,7 +450,7 @@
     </div>
 
     <!-- Active Event Presentation -->
-    <div class="container" id="event-content-view" style="display: none;">
+    <div class="container ev-panel" id="event-content-view" style="display: none;">
       <!-- Hero Banner Wrap -->
       <div class="event-hero-banner-wrap">
         <img src="images/event%20images/Pydah%20hackathon.png" alt="Event Banner" id="ev-banner-img" class="event-hero-banner-img">
@@ -395,7 +518,7 @@
       </div>
 
       <!-- Event Description -->
-      <div style="background: rgba(255, 255, 255, 0.02); border: 1.5px solid var(--border-subtle); border-radius: 8px; padding: 2.2rem; margin: 2rem 0;">
+      <div class="ev-desc-card" style="background: rgba(255, 255, 255, 0.02); border: 1.5px solid var(--border-subtle); border-radius: 8px; padding: 2.2rem; margin: 2rem 0;">
         <h3 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 1rem; color: #fff;">
           EVENT OVERVIEW &amp; TECHNICAL HIGHLIGHTS
         </h3>
@@ -442,25 +565,25 @@
           </div>
 
           <form id="event-reg-form">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+            <div class="ev-grid-2">
               <div class="form-group-full">
                 <label for="reg-name" class="form-label">FULL NAME *</label>
-                <input type="text" id="reg-name" class="editorial-input" placeholder="e.g. SIVATEJA JETTI" required autocomplete="name">
+                <input type="text" id="reg-name" class="editorial-input" placeholder="Full name" required autocomplete="name">
               </div>
               <div class="form-group-full">
                 <label for="reg-section" class="form-label">SECTION / ROLL NO. *</label>
-                <input type="text" id="reg-section" class="editorial-input" placeholder="e.g. CSE-A / 22A91A05XX" required>
+                <input type="text" id="reg-section" class="editorial-input" placeholder="Section / Roll no." required>
               </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.25rem;">
+            <div class="ev-grid-2" style="margin-top: 1.25rem;">
               <div class="form-group-full">
                 <label for="reg-phone" class="form-label">PHONE NUMBER (FOR OTP &amp; PASS) *</label>
-                <input type="tel" id="reg-phone" class="editorial-input" placeholder="e.g. 9876543210" required autocomplete="tel">
+                <input type="tel" id="reg-phone" class="editorial-input" placeholder="Phone number" required autocomplete="tel">
               </div>
               <div class="form-group-full">
                 <label for="reg-email" class="form-label">COLLEGE / PERSONAL EMAIL *</label>
-                <input type="email" id="reg-email" class="editorial-input" placeholder="e.g. student@pydah.edu.in" required autocomplete="email">
+                <input type="email" id="reg-email" class="editorial-input" placeholder="Email address" required autocomplete="email">
               </div>
             </div>
 
@@ -549,7 +672,7 @@
                   </div>
                 </div>
 
-                <div style="font-family: var(--font-mono); font-size: 0.65rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em;">
+                <div class="pass-foot-note" style="font-family: var(--font-mono); font-size: 0.65rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em;">
                   OFFICIAL ENTRY TOKEN // PYDAH COLLEGE OF ENGINEERING
                 </div>
               </div>
@@ -590,7 +713,7 @@
         </p>
         <div class="form-group-full">
           <label for="find-phone-input" class="form-label">REGISTERED MOBILE NUMBER</label>
-          <input type="tel" id="find-phone-input" class="editorial-input" placeholder="e.g. 9876543210" required>
+          <input type="tel" id="find-phone-input" class="editorial-input" placeholder="Registered phone number" required>
         </div>
         <div id="find-phone-error" style="display: none; color: #f87171; font-family: var(--font-mono); font-size: 0.78rem; margin-top: 0.5rem;"></div>
         <div style="margin-top: 1.5rem;">
@@ -621,6 +744,7 @@
   <!-- Supabase Integration -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-client.js"></script>
+  <script src="nav.js"></script>
 
   <!-- Page Logic -->
   <script>
@@ -998,7 +1122,7 @@
       });
 
       // -----------------------------------------------------------------------
-      // Find My Pass Modal Logic (Phone + OTP)
+      // Find Pass Modal Logic (Phone lookup)
       // -----------------------------------------------------------------------
       const findModal = document.getElementById('find-pass-modal');
       const openFindBtn = document.getElementById('btn-open-find-pass');
@@ -1009,6 +1133,19 @@
           findModal.classList.add('active');
           document.getElementById('otp-step-phone').style.display = 'block';
           document.getElementById('otp-step-verify').style.display = 'none';
+          document.getElementById('otp-step-results').style.display = 'none';
+        });
+      }
+
+      const mobileFindBtn = document.getElementById('mobile-btn-open-find-pass');
+      if (mobileFindBtn) {
+        mobileFindBtn.addEventListener('click', () => {
+          document.getElementById('mobile-nav-overlay').classList.remove('active');
+          document.body.style.overflow = '';
+          findModal.classList.add('active');
+          document.getElementById('otp-step-phone').style.display = 'block';
+          var verifyStep = document.getElementById('otp-step-verify');
+          if (verifyStep) verifyStep.style.display = 'none';
           document.getElementById('otp-step-results').style.display = 'none';
         });
       }
