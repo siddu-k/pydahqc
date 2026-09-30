@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Coders — Student Tech Community | Pydah College of Engineering</title>
+  <meta name="description" content="Quantum Coders is the official student tech community of Pydah College of Engineering — workshops, hackathons, open-source builds and a 500+ member cadre.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Quantum Coders — Create. Connect. Lead.">
+  <meta property="og:description" content="Workshops, hackathons and real shipped projects. Official student tech club of Pydah College of Engineering.">
+  <meta property="og:image" content="assets/logo.png">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pro.css">
+</head>
+<body>
+  <script>document.documentElement.classList.add('js')</script>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div class="dragon-slider" id="dragon-slider" title="Back to top" role="button" tabindex="0" aria-label="Back to top">
+    <canvas id="dragon-canvas" aria-hidden="true"></canvas>
+  </div>
+
+  <!-- ======================= HEADER ======================= -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="#home" class="brand-link" aria-label="Quantum Coders Home">
+        <img src="assets/logo.png" alt="Quantum Coders Logo" class="brand-logo-img">
+        <span class="brand-text-block">
+          <span class="brand-title">QUANTUM CODERS</span>
+          <span class="brand-subtitle">PYDAH COLLEGE OF ENGINEERING</span>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="#home" class="nav-link active" data-section="home">Home</a>
+        <a href="#about" class="nav-link" data-section="about">About</a>
+        <a href="#team" class="nav-link" data-section="team">Team</a>
+        <a href="#calendar" class="nav-link" data-section="calendar">Events</a>
+        <button type="button" class="btn-brutalist btn-secondary btn-sm" id="nav-btn-find-pass" title="Find or cancel an active event pass">Find Pass</button>
+      </nav>
+      <div class="nav-mobile-actions">
+        <span class="nav-mobile-pydah-pill" title="Pydah College of Engineering">
+          <img src="images/Pydah%20Logo.png" alt="Pydah College of Engineering" class="nav-mobile-pydah-logo">
+        </span>
+        <button class="menu-trigger" id="menu-trigger" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-nav-top-row">
+      <span class="mobile-overlay-pydah-pill"><img src="images/Pydah%20Logo.png" alt="Pydah College of Engineering" class="mobile-overlay-pydah-logo"></span>
+      <button class="mobile-nav-close-btn" id="mobile-nav-close" aria-label="Close Navigation Menu">✕</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="#home" class="mobile-nav-link" data-nav-close data-section="home"><span class="nav-num">01</span> Home</a></li>
+      <li><a href="#about" class="mobile-nav-link" data-nav-close data-section="about"><span class="nav-num">02</span> About</a></li>
+      <li><a href="#team" class="mobile-nav-link" data-nav-close data-section="team"><span class="nav-num">03</span> Team</a></li>
+      <li><a href="#calendar" class="mobile-nav-link" data-nav-close data-section="calendar"><span class="nav-num">04</span> Events</a></li>
+    </ul>
+    <div class="mobile-nav-quick-actions">
+      <button type="button" class="btn-brutalist btn-secondary btn-sm" id="mobile-btn-find-pass">Find Pass</button>
+    </div>
+    <div class="mobile-nav-footer"><span>QUANTUM CODERS // 2026</span><span>CREATE • CONNECT • LEAD</span></div>
+  </div>
+
+  <main>
+    <!-- ======================= HERO ======================= -->
+    <section class="section hero-section" id="home">
+      <div class="container">
+        <div class="hud-panel">
+          <div class="hud-topbar">
+            <span class="hud-brand">◤ QUANTUM CODERS</span>
+            <span class="hud-spec">FINAL&ensp;//&ensp;CLUB SITE&ensp;/&ensp;2026</span>
+            <span class="hud-brand">PYDAH COLLEGE ◢</span>
+          </div>
+          <div class="hud-media-row">
+            <figure class="hud-tile hud-tile-design">
+              <svg viewBox="0 0 220 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="220" height="210" fill="#E9EAED"/>
+                <g class="flow-lines" stroke="#111214" stroke-width="2" fill="none" stroke-linecap="round">
+                  <path d="M12 170 C 40 150, 30 110, 62 96 S 96 60, 88 28"/>
+                  <path d="M62 96 C 90 104, 108 92, 132 100 S 170 92, 186 60"/>
+                  <path d="M132 100 C 128 130, 150 148, 142 178"/>
+                  <path d="M30 60 C 60 66, 78 44, 110 52 S 160 40, 178 56"/>
+                  <path d="M110 52 C 118 80, 140 84, 150 110"/>
+                  <path d="M40 140 C 70 132, 84 150, 112 142"/>
+                  <path d="M170 130 C 186 140, 196 132, 206 144"/>
+                </g>
+                <g fill="#111214">
+                  <circle cx="62" cy="96" r="5"/><circle cx="132" cy="100" r="5"/>
+                  <circle cx="110" cy="52" r="4"/><circle cx="88" cy="28" r="3"/>
+                  <circle cx="186" cy="60" r="4"/><circle cx="142" cy="178" r="3"/>
+                </g>
+                <circle cx="150" cy="110" r="6" fill="#FF2B2B"/>
+                <circle cx="30" cy="60" r="3" fill="#FF2B2B"/>
+              </svg>
+              <figcaption>NEURAL MAP // 001</figcaption>
+            </figure>
+            <div class="hud-title-cell">
+              <div class="hud-kicker"><span class="hud-star">✳</span> STUDENT • TECH • COLLECTIVE <span class="hud-star">✳</span></div>
+              <h1 class="hud-title">QUANTUM<br>CODERS</h1>
+            </div>
+            <figure class="hud-tile hud-tile-design hud-tile-dark">
+              <svg viewBox="0 0 220 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="220" height="210" fill="#111214"/>
+                <g stroke="#FFFFFF" stroke-width="1" opacity="0.14">
+                  <path d="M0 52 H220 M0 105 H220 M0 158 H220 M55 0 V210 M110 0 V210 M165 0 V210"/>
+                </g>
+                <g class="radar-spin" stroke="#FFFFFF" fill="none" opacity="0.9">
+                  <ellipse cx="110" cy="100" rx="76" ry="30" stroke-width="1.5"/>
+                  <g transform="rotate(60 110 100)"><ellipse cx="110" cy="100" rx="76" ry="30" stroke-width="1"/></g>
+                  <g transform="rotate(120 110 100)"><ellipse cx="110" cy="100" rx="76" ry="30" stroke-width="1"/></g>
+                  <circle cx="186" cy="100" r="4" fill="#FFFFFF" stroke="none"/>
+                  <circle cx="72" cy="134" r="3.5" fill="#FFFFFF" stroke="none"/>
+                  <circle cx="110" cy="42" r="3.5" fill="#FF2B2B" stroke="none"/>
+                </g>
+                <circle cx="110" cy="100" r="11" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+                <circle cx="110" cy="100" r="5.5" fill="#FF2B2B"/>
+                <g stroke="#FFFFFF" stroke-width="1.2" opacity="0.7">
+                  <path d="M14 14 H30 M14 14 V30 M206 14 H190 M206 14 V30 M14 180 V196 M14 196 H30 M206 196 H190 M206 196 V180"/>
+                </g>
+                <text x="18" y="46" font-family="monospace" font-size="10" letter-spacing="2" fill="#FFFFFF" opacity="0.65">1010</text>
+                <text x="176" y="176" font-family="monospace" font-size="10" letter-spacing="2" fill="#FFFFFF" opacity="0.65">0110</text>
+                <text x="80" y="200" font-family="monospace" font-size="11" letter-spacing="2" fill="#FFFFFF">QC // CORE</text>
+              </svg>
+              <figcaption>QUANTUM CORE // 002</figcaption>
+            </figure>
+          </div>
+          <div class="hud-bottom-row">
+            <p class="hud-desc">The reinvention of campus engineering through building as a discipline.<br><span class="hud-desc-sub">/ a student experiment /</span></p>
+            <div class="hud-cta-cell">
+              <a href="#calendar" class="btn-brutalist hud-btn-primary">Explore Events</a>
+              <a href="#team" class="btn-brutalist btn-brutalist-secondary">Meet the Team</a>
+            </div>
+            <div class="hud-red-block">
+              <span class="hud-red-icons">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="7" y="7" width="10" height="10"/><path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M8 7.5l3 8M16 7.5l-3 8M8.4 6h7.2"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12L4 7.5M12 12v9"/></svg>
+              </span>
+              <span class="hud-red-cap">CREATE / CONNECT / LEAD</span>
+            </div>
+          </div>
+          <div class="hud-meta-grid">
+            <div class="hud-meta-cell"><span>CHAPTER</span><strong>01 // PYDAH</strong></div>
+            <div class="hud-meta-cell"><span>LEADERSHIP</span><strong><a href="#team">7 CORE →</a></strong></div>
+            <div class="hud-meta-cell"><span>COMMUNITY</span><strong>500+ MEMBERS</strong></div>
+            <div class="hud-meta-cell"><span>FOCUS</span><strong>AI • WEB • FOSS</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= TICKER ======================= -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>CREATE</span><i>✳</i><span>CONNECT</span><i>✳</i><span>LEAD</span><i>✳</i><span>HACKATHONS</span><i>✳</i><span>WORKSHOPS</span><i>✳</i><span>OPEN SOURCE</span><i>✳</i><span>AI SYSTEMS</span><i>✳</i><span>PYDAH 2026</span><i>✳</i>
+        <span>CREATE</span><i>✳</i><span>CONNECT</span><i>✳</i><span>LEAD</span><i>✳</i><span>HACKATHONS</span><i>✳</i><span>WORKSHOPS</span><i>✳</i><span>OPEN SOURCE</span><i>✳</i><span>AI SYSTEMS</span><i>✳</i><span>PYDAH 2026</span><i>✳</i>
+      </div>
+    </div>
+
+    <!-- ======================= STATS ======================= -->
+    <section class="stats-strip" id="stats-strip">
+      <div class="container stats-grid">
+        <div class="stat-box"><div class="stat-number-wrap"><span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span></div><div class="stat-label">Active Members</div></div>
+        <div class="stat-box"><div class="stat-number-wrap"><span class="stat-number" data-target="25">0</span><span class="stat-plus">+</span></div><div class="stat-label">Flagship Events</div></div>
+        <div class="stat-box"><div class="stat-number-wrap"><span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span></div><div class="stat-label">Shipped Projects</div></div>
+        <div class="stat-box"><div class="stat-number-wrap"><span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span></div><div class="stat-label">Workshops / Year</div></div>
+      </div>
+    </section>
+
+    <!-- ======================= ABOUT ======================= -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">01 // Who we are</div>
+          <h2 class="section-title-huge">BUILT BY STUDENTS,<br>FOR BUILDERS</h2>
+          <p class="section-subtitle">A peer-led collective of developers, designers and innovators learning by shipping real software together.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p><strong>Quantum Coders</strong> is where theory meets practice. Instead of slides alone, members learn through hackathon sprints, code labs and open-source contributions — mentored by peers who have shipped before.</p>
+            <p>From AI systems and web platforms to robotics and design, everything we run is hands-on and open to all branches.</p>
+            <div class="about-affiliation-seal">
+              <span class="about-pydah-badge"><img src="images/Pydah%20Logo.png" alt="Pydah College of Engineering" class="about-pydah-img"></span>
+              <span class="about-affiliation-text">
+                <span class="about-affiliation-title">Pydah College of Engineering</span>
+                <span class="about-affiliation-desc">Official student tech club • Pydah Group, Kakinada</span>
+              </span>
+            </div>
+          </div>
+          <div class="pillar-list">
+            <div class="pillar-card"><span class="pillar-num">01</span><h3>Learn</h3><p>Peer-led labs in modern stacks, AI and systems — from first principles to production.</p></div>
+            <div class="pillar-card"><span class="pillar-num">02</span><h3>Create</h3><p>Hack sprints, design jams and open-source contributions with real users.</p></div>
+            <div class="pillar-card"><span class="pillar-num">03</span><h3>Lead</h3><p>Run workshops, mentor juniors and represent the club on bigger stages.</p></div>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- ======================= TEAM (CORE CADRE - FULL WIDTH STAGE) ======================= -->
+  <section class="section team-section" id="team">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">02 // Leadership</div>
+          <h2 class="section-title-huge">CORE CADRE</h2>
+          <p class="section-subtitle">Seven elected leads run the club's engineering, events and outreach. Open any dossier for the full profile.</p>
+        </div>
+        <div class="cadre-view-toggle-bar">
+          <button class="cadre-toggle-btn active" id="btn-view-deck">3D Cadre Deck</button>
+          <button class="cadre-toggle-btn" id="btn-view-grid">Expanded Grid</button>
+        </div>
+        <div class="cadre-deck-stage" id="cadre-deck-stage">
+
+          <!-- Layer 1: Underneath Backdrop Deck (7 White Rounded ID Card Slabs Fanning Out) -->
+          <div class="cadre-backdrop-deck" aria-hidden="true">
+            <!-- Position 1: Far Left (QC-006) -->
+            <div class="cadre-bg-slab pos-1" data-index="0">
+              <div class="slab-inner">
+                <div class="slab-header">
+                  <span class="slab-serial">QC-006</span>
+                  <span class="slab-status"><span class="status-dot"></span> ACTIVE</span>
+                </div>
+                <div class="slab-body">
+                  <div class="slab-watermark">MEDIA // PR</div>
+                  <div class="slab-barcode">||| | |||| || | |||</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 2: Mid Left (QC-004) -->
+            <div class="cadre-bg-slab pos-2" data-index="1">
+              <div class="slab-inner">
+                <div class="slab-header">
+                  <span class="slab-serial">QC-004</span>
+                  <span class="slab-status"><span class="status-dot"></span> ACTIVE</span>
+                </div>
+                <div class="slab-body">
+                  <div class="slab-watermark">FINANCE // DESIGN</div>
+                  <div class="slab-barcode">|||| || | |||| | ||</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 3: Inner Left (QC-002) -->
+            <div class="cadre-bg-slab pos-3" data-index="2">
+              <div class="slab-inner">
+                <div class="slab-header">
+                  <span class="slab-serial">QC-002</span>
+                  <span class="slab-status"><span class="status-dot"></span> ACTIVE</span>
+                </div>
+                <div class="slab-body">
+                  <div class="slab-watermark">VICE PRESIDENT</div>
+                  <div class="slab-barcode">|| | |||| | ||| |||</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 4: CENTER APEX (QC-001 - Lead) -->
+            <div class="cadre-bg-slab pos-4 is-center" data-index="3">
+              <div class="slab-inner">
+                <div class="slab-header">
+                  <span class="slab-serial slab-lead-serial">QC-001 // LEAD</span>
+                  <span class="slab-status slab-lead-status"><span class="status-dot"></span> ACTIVE • APEX</span>
+                </div>
+                <div class="slab-body">
+                  <div class="slab-watermark">PRESIDENT // LEAD</div>
+                  <div class="slab-barcode">|||||| |||| | |||||</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 5: Inner Right (QC-003) -->
+            <div class="cadre-bg-slab pos-5" data-index="4">
+              <div class="slab-inner">
+                <div class="slab-header">
+                  <span class="slab-serial">QC-003</span>
+                  <span class="slab-status"><span class="status-dot"></span> ACTIVE</span>
+                </div>
+                <div class="slab-body">
+                  <div class="slab-watermark">SECRETARY // TECH</div>
+                  <div class="slab-barcode">||| || | |||| || ||</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 6: Mid Right (QC-005) -->
+            <div class="cadre-bg-slab pos-6" data-index="5">
+              <div class="slab-inner">
+                <div class="slab-header">
+                  <span class="slab-serial">QC-005</span>
+                  <span class="slab-status"><span class="status-dot"></span> ACTIVE</span>
+                </div>
+                <div class="slab-body">
+                  <div class="slab-watermark">OPERATIONS // VP</div>
+                  <div class="slab-barcode">|||| | ||| | || |||</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 7: Far Right (QC-007) -->
+            <div class="cadre-bg-slab pos-7" data-index="6">
+              <div class="slab-inner">
+                <div class="slab-header">
+                  <span class="slab-serial">QC-007</span>
+                  <span class="slab-status"><span class="status-dot"></span> ACTIVE</span>
+                </div>
+                <div class="slab-body">
+                  <div class="slab-watermark">PR // BRANDING</div>
+                  <div class="slab-barcode">|| | ||| |||| | |||</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Layer 2: On Top Cards Deck (7 Pop-out Cutout Cards with Info Plates) -->
+          <div class="cadre-cards-deck" id="cadre-cards-deck">
+            <!-- Position 1: Far Left (QC-006 - Sri Ram) -->
+            <div class="cadre-fan-card pos-1" data-index="0" data-id="QC-006" data-cursor="QC-006">
+              <div class="cadre-card-shell">
+                <div class="cadre-card-header">
+                  <span class="cadre-card-serial">QC-006</span>
+                  <span class="cadre-card-status"><span class="status-dot"></span> ACTIVE • CORE</span>
+                </div>
+                <div class="cadre-card-cutout-frame">
+                  <img src="images/QC-006.png" alt="Sri Ram" class="cadre-cutout-img sticker-cutout">
+                </div>
+                <div class="cadre-card-info">
+                  <div class="cadre-role-stamp" style="color: var(--color-purple);">MEDIA &amp; PR</div>
+                  <h3 class="cadre-member-name">SRI RAM</h3>
+                  <p class="cadre-member-domain">Broadcast &amp; Content Strategy</p>
+                  <a href="team/QC-006/index.html" class="btn-brutalist cadre-card-btn" data-cursor="DOSSIER">
+                    View Dossier →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 2: Mid Left (QC-004 - Teja) -->
+            <div class="cadre-fan-card pos-2" data-index="1" data-id="QC-004" data-cursor="QC-004">
+              <div class="cadre-card-shell">
+                <div class="cadre-card-header">
+                  <span class="cadre-card-serial">QC-004</span>
+                  <span class="cadre-card-status"><span class="status-dot"></span> ACTIVE • CORE</span>
+                </div>
+                <div class="cadre-card-cutout-frame">
+                  <img src="images/QC-004.png" alt="Teja" class="cadre-cutout-img sticker-cutout">
+                </div>
+                <div class="cadre-card-info">
+                  <div class="cadre-role-stamp" style="color: var(--color-purple);">TREASURER & DESIGNER</div>
+                  <h3 class="cadre-member-name">TEJA</h3>
+                  <p class="cadre-member-domain">Finance &amp; Brutalist Editor </p>
+                  <a href="team/QC-004/index.html" class="btn-brutalist cadre-card-btn" data-cursor="DOSSIER">
+                    View Dossier →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 3: Inner Left (QC-002 - Renuka) -->
+            <div class="cadre-fan-card pos-3" data-index="2" data-id="QC-002" data-cursor="QC-002">
+              <div class="cadre-card-shell">
+                <div class="cadre-card-header">
+                  <span class="cadre-card-serial">QC-002</span>
+                  <span class="cadre-card-status"><span class="status-dot"></span> ACTIVE • CORE</span>
+                </div>
+                <div class="cadre-card-cutout-frame">
+                  <img src="images/QC-002.png" alt="Renuka" class="cadre-cutout-img sticker-cutout">
+                </div>
+                <div class="cadre-card-info">
+                  <div class="cadre-role-stamp" style="color: var(--color-purple);">VICE PRESIDENT</div>
+                  <h3 class="cadre-member-name">RENUKA</h3>
+                  <p class="cadre-member-domain">Management</p>
+                  <a href="team/QC-002/index.html" class="btn-brutalist cadre-card-btn" data-cursor="DOSSIER">
+                    View Dossier →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 4: CENTER APEX (QC-001 - Praveen, President) -->
+            <div class="cadre-fan-card pos-4 is-center" data-index="3" data-id="QC-001" data-cursor="QC-001">
+              <div class="cadre-card-shell">
+                <div class="cadre-card-header">
+                  <span class="cadre-card-serial" style="color: var(--color-blue); font-weight: 900;">QC-001 // LEAD</span>
+                  <span class="cadre-card-status"><span class="status-dot"></span> ACTIVE • CORE</span>
+                </div>
+                <div class="cadre-card-cutout-frame">
+                  <img src="images/QC-001.png" alt="Praveen" class="cadre-cutout-img sticker-cutout">
+                </div>
+                <div class="cadre-card-info" style="border-top-color: var(--color-blue);">
+                  <div class="cadre-role-stamp" style="color: var(--color-blue);">PRESIDENT</div>
+                  <h3 class="cadre-member-name">PRAVEEN</h3>
+                  <p class="cadre-member-domain">Management</p>
+                  <a href="team/QC-001/index.html" class="btn-brutalist cadre-card-btn" style="background: var(--color-blue); color: #FFFFFF;" data-cursor="DOSSIER">
+                    View ID Dossier →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 5: Inner Right (QC-003 - Sandeep) -->
+            <div class="cadre-fan-card pos-5" data-index="4" data-id="QC-003" data-cursor="QC-003">
+              <div class="cadre-card-shell">
+                <div class="cadre-card-header">
+                  <span class="cadre-card-serial">QC-003</span>
+                  <span class="cadre-card-status"><span class="status-dot"></span> ACTIVE • CORE</span>
+                </div>
+                <div class="cadre-card-cutout-frame">
+                  <img src="images/QC-003.png" alt="Sandeep" class="cadre-cutout-img sticker-cutout">
+                </div>
+                <div class="cadre-card-info">
+                  <div class="cadre-role-stamp">SECRETARY</div>
+                  <h3 class="cadre-member-name">SANDEEP</h3>
+                  <p class="cadre-member-domain">Events and Technical Support</p>
+                  <a href="team/QC-003/index.html" class="btn-brutalist cadre-card-btn" data-cursor="DOSSIER">
+                    View Dossier →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 6: Mid Right (QC-005 - Venky) -->
+            <div class="cadre-fan-card pos-6" data-index="5" data-id="QC-005" data-cursor="QC-005">
+              <div class="cadre-card-shell">
+                <div class="cadre-card-header">
+                  <span class="cadre-card-serial">QC-005</span>
+                  <span class="cadre-card-status"><span class="status-dot"></span> ACTIVE • CORE</span>
+                </div>
+                <div class="cadre-card-cutout-frame">
+                  <img src="images/QC-005.png" alt="Venky" class="cadre-cutout-img sticker-cutout">
+                </div>
+                <div class="cadre-card-info">
+                  <div class="cadre-role-stamp">VICE SECRETARY</div>
+                  <h3 class="cadre-member-name">VENKY</h3>
+                  <p class="cadre-member-domain">Operations</p>
+                  <a href="team/QC-005/index.html" class="btn-brutalist cadre-card-btn" data-cursor="DOSSIER">
+                    View Dossier →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Position 7: Far Right (QC-007 - Karthik) -->
+            <div class="cadre-fan-card pos-7" data-index="6" data-id="QC-007" data-cursor="QC-007">
+              <div class="cadre-card-shell">
+                <div class="cadre-card-header">
+                  <span class="cadre-card-serial">QC-007</span>
+                  <span class="cadre-card-status"><span class="status-dot"></span> ACTIVE • CORE</span>
+                </div>
+                <div class="cadre-card-cutout-frame">
+                  <img src="images/QC-007.png" alt="Karthik" class="cadre-cutout-img sticker-cutout">
+                </div>
+                <div class="cadre-card-info">
+                  <div class="cadre-role-stamp">MEDIA &amp; PR</div>
+                  <h3 class="cadre-member-name">KARTHIK</h3>
+                  <p class="cadre-member-domain">Public Relations and Branding</p>
+                  <a href="team/QC-007/index.html" class="btn-brutalist cadre-card-btn" data-cursor="DOSSIER">
+                    View Dossier →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  
+  <main class="hud-main-panel hud-main-lower">
+    <!-- ======================= EVENTS ======================= -->
+    <section class="section calendar-section" id="calendar">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">03 // Events</div>
+          <h2 class="section-title-huge">EVENT CALENDAR</h2>
+          <p class="section-subtitle">Workshops, hackathons and technical sprints. Pick a date or a card to reserve your entry pass.</p>
+        </div>
+        <div class="editorial-card calendar-card-box">
+          <div class="calendar-controls-bar">
+            <div class="cal-nav-group">
+              <button type="button" class="btn-brutalist btn-secondary btn-sm" id="cal-prev-month" aria-label="Previous month">← Prev</button>
+              <h3 id="cal-month-year-title">2026</h3>
+              <button type="button" class="btn-brutalist btn-secondary btn-sm" id="cal-next-month" aria-label="Next month">Next →</button>
+              <button type="button" class="btn-brutalist btn-outline btn-sm" id="cal-today-btn">Today</button>
+              <div id="cal-months-quick-pills"></div>
+            </div>
+            <div class="cal-legend-bar">
+              <span><i class="legend-dot legend-workshop"></i>Workshop</span>
+              <span><i class="legend-dot legend-hackathon"></i>Hackathon</span>
+              <span><i class="legend-dot legend-competition"></i>Competition</span>
+              <span><i class="legend-dot legend-seminar"></i>Seminar</span>
+            </div>
+          </div>
+          <div class="calendar-days-header-grid"><div>SUN</div><div>MON</div><div>TUE</div><div>WED</div><div>THU</div><div>FRI</div><div>SAT</div></div>
+          <div class="calendar-days-grid" id="calendar-days-grid"></div>
+        </div>
+        <div class="featured-head">
+          <div>
+            <div class="section-tag">Upcoming sprints</div>
+            <h3>FEATURED EVENTS</h3>
+          </div>
+          <div class="featured-tools">
+            <div id="upcoming-events-category-filters" role="tablist">
+              <button type="button" class="filter-pill active" data-category="ALL">All</button>
+              <button type="button" class="filter-pill" data-category="WORKSHOP">Workshops</button>
+              <button type="button" class="filter-pill" data-category="HACKATHON">Hackathons</button>
+              <button type="button" class="filter-pill" data-category="COMPETITION">Competitions</button>
+              <button type="button" class="filter-pill" data-category="SEMINAR">Seminars</button>
+            </div>
+            <button type="button" class="btn-brutalist btn-secondary btn-sm" id="cal-open-find-pass-btn">Retrieve Pass</button>
+          </div>
+        </div>
+        <div class="upcoming-events-grid" id="upcoming-events-cards"></div>
+      </div>
+    </section>
+
+    <!-- ======================= GALLERY ======================= -->
+
+
+    <!-- ======================= JOIN ======================= -->
+
+    <!-- ======================= CONTACT ======================= -->
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand-wrap">
+          <div class="footer-logos-duo">
+            <img src="assets/logo.png" alt="Quantum Coders Logo" class="footer-logo">
+            <span class="footer-pydah-pill"><img src="images/Pydah%20Logo.png" alt="Pydah College of Engineering" class="footer-pydah-logo"></span>
+          </div>
+          <div class="footer-slogan">CREATE. CONNECT. LEAD.</div>
+          <p class="footer-sub">Official student tech community of Pydah College of Engineering, Andhra Pradesh.</p>
+        </div>
+        <div class="footer-links-group">
+          <div>
+            <div class="footer-col-title">Explore</div>
+            <ul class="footer-nav-list">
+              <li><a href="#about" class="footer-nav-link">About</a></li>
+              <li><a href="#team" class="footer-nav-link">Team</a></li>
+              <li><a href="#calendar" class="footer-nav-link">Events</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Membership</div>
+            <ul class="footer-nav-list">
+              <li><a href="event.html" class="footer-nav-link">Event passes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <div id="footer-secret-trigger">© 2026 Quantum Coders. All rights reserved.</div>
+        <div>Designed &amp; built by the Quantum Coders cadre</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-notice" id="toast-notice" role="status" aria-live="polite"></div>
+
+  <div class="admin-modal-backdrop" id="find-pass-modal" aria-hidden="true" role="dialog">
+    <div class="admin-modal-box" style="max-width: 520px; background: #0c0c10; border: 1.5px solid var(--border-medium); padding: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
+        <div>
+          <h2 style="font-family: var(--font-display); font-size: 1.5rem; margin: 0; color: #fff;">FIND OR CANCEL PASS</h2>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-gray);">INSTANT PASS RETRIEVAL</span>
+        </div>
+        <button type="button" class="modal-close-btn" id="find-pass-modal-close" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+
+      <!-- Step 1: Phone Lookup (Direct, No OTP) -->
+      <div id="otp-step-phone">
+        <p style="font-size: 0.88rem; color: var(--color-gray); margin-bottom: 1.25rem;">
+          Enter the mobile number you used during registration to retrieve or cancel your passes.
+        </p>
+        <div class="form-group-full">
+          <label for="find-phone-input" class="form-label">REGISTERED MOBILE NUMBER</label>
+          <input type="tel" id="find-phone-input" class="editorial-input" placeholder="Registered phone number" required>
+        </div>
+        <div id="find-phone-error" style="display: none; color: #f87171; font-family: var(--font-mono); font-size: 0.78rem; margin-top: 0.5rem;"></div>
+        <div style="margin-top: 1.5rem;">
+          <button type="button" class="btn-brutalist btn-primary" id="btn-send-find-otp" style="width: 100%; justify-content: center;">
+            FIND MY PASSES →
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Passes Result View -->
+      <div id="otp-step-verify" style="display:none"></div><div id="find-otp-error" style="display:none"></div><div id="otp-step-results" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h4 style="font-family: var(--font-heading); font-size: 1.1rem; color: #fff; margin: 0;">YOUR ACTIVE PASSES</h4>
+          <button type="button" class="btn-brutalist btn-secondary btn-sm" id="btn-back-to-phone" style="font-size: 0.75rem; padding: 4px 8px;">← Search Other</button>
+        </div>
+        <div id="student-passes-list" style="max-height: 320px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem;">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="admin-modal-backdrop" id="upcoming-event-popup-modal" aria-hidden="true" role="dialog" aria-labelledby="popup-event-title" style="display: none;">
+    <div class="admin-modal-box" style="max-width: 580px; width: 100%; background: #0c0c12; border: 1.5px solid var(--border-medium); border-radius: 8px; padding: 0; overflow: hidden; box-shadow: 0 30px 90px rgba(0,0,0,0.95), 0 0 35px rgba(59,130,246,0.25);">
+      <!-- Popup Header Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 1.5rem; background: #12131a; border-bottom: 1px solid var(--border-subtle);">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></span>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--color-blue); font-weight: 700;">UPCOMING EVENT ALERT // PYDAH CADRE</span>
+        </div>
+        <button type="button" class="modal-close-btn" id="popup-event-close-btn" aria-label="Close modal" style="background: none; border: none; font-size: 1.8rem; color: #fff; cursor: pointer; line-height: 1; padding: 0 0.25rem;">&times;</button>
+      </div>
+
+      <!-- Banner Image Wrap -->
+      <div style="position: relative; width: 100%; height: 200px; background: #161722; overflow: hidden;">
+        <img id="popup-event-banner" src="images/event%20images/Pydah%20hackathon.png" alt="Upcoming Event" style="width: 100%; height: 100%; object-fit: cover;">
+        <span id="popup-event-badge" class="section-tag" style="position: absolute; top: 1rem; left: 1rem; background: var(--color-blue); color: #fff; margin: 0; font-size: 0.68rem; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">WORKSHOP</span>
+        <span id="popup-event-status-pill" class="section-tag" style="position: absolute; top: 1rem; right: 1rem; background: rgba(16,185,129,0.9); color: #fff; margin: 0; font-size: 0.68rem; font-weight: 700;">REGISTRATION OPEN</span>
+      </div>
+
+      <!-- Popup Body Content -->
+      <div style="padding: 1.5rem 1.75rem;">
+        <h3 id="popup-event-title" style="font-family: var(--font-display); font-size: 1.6rem; color: #fff; line-height: 1.2; margin: 0 0 0.75rem 0;">Loading upcoming event…</h3>
+        <p id="popup-event-desc" style="font-size: 0.88rem; line-height: 1.55; color: var(--color-gray); margin-bottom: 1.25rem;">Fetching the latest sprint details.</p>
+
+        <!-- Meta Details Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.76rem;">
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 0.6rem 0.85rem; border-radius: 4px;">
+            <div style="color: var(--color-gray); font-size: 0.65rem; text-transform: uppercase;">DATE &amp; TIME</div>
+            <div id="popup-event-datetime" style="color: #fff; font-weight: 700; margin-top: 0.2rem;">—</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 0.6rem 0.85rem; border-radius: 4px;">
+            <div style="color: var(--color-gray); font-size: 0.65rem; text-transform: uppercase;">VENUE</div>
+            <div id="popup-event-venue" style="color: #fff; font-weight: 700; margin-top: 0.2rem;">—</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); padding: 0.6rem 0.85rem; border-radius: 4px;">
+            <div style="color: var(--color-gray); font-size: 0.65rem; text-transform: uppercase;">AVAILABILITY</div>
+            <div id="popup-event-slots" style="color: #38bdf8; font-weight: 700; margin-top: 0.2rem;">—</div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="display: flex; gap: 0.75rem; justify-content: flex-end; align-items: center; flex-wrap: wrap;">
+          <button type="button" class="btn-brutalist btn-secondary btn-sm" id="popup-event-dismiss-btn">
+            Explore Website
+          </button>
+          <a href="event.html" class="btn-brutalist btn-primary btn-sm" id="popup-event-action-btn">
+            Register Entry Pass →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // "Search Other" step-back inside the Find-Pass modal (index page only)
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.id === 'btn-back-to-phone') {
+        var r = document.getElementById('otp-step-results');
+        var p = document.getElementById('otp-step-phone');
+        if (r) r.style.display = 'none';
+        if (p) p.style.display = 'block';
+      }
+    });
+  </script>
+  <script>
+    // Hero 3D tilt + depth parallax (fine pointing devices only, motion-safe)
+    (function () {
+      var hero = document.getElementById('home');
+      var panel = hero && hero.querySelector('.hud-panel');
+      if (!hero || !panel) return;
+      if (window.matchMedia('(pointer: coarse)').matches) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var rx = 0, ry = 0, px = 0, py = 0, trx = 0, try_ = 0, tpx = 0, tpy = 0, raf = null;
+      function frame() {
+        rx += (trx - rx) * 0.08; ry += (try_ - ry) * 0.08;
+        px += (tpx - px) * 0.08; py += (tpy - py) * 0.08;
+        panel.style.setProperty('--rx', rx.toFixed(3) + 'deg');
+        panel.style.setProperty('--ry', ry.toFixed(3) + 'deg');
+        panel.style.setProperty('--px', px.toFixed(3));
+        panel.style.setProperty('--py', py.toFixed(3));
+        if (Math.abs(trx - rx) > 0.01 || Math.abs(try_ - ry) > 0.01 || Math.abs(tpx - px) > 0.001 || Math.abs(tpy - py) > 0.001) {
+          raf = requestAnimationFrame(frame);
+        } else { raf = null; }
+      }
+      function kick() { if (!raf) raf = requestAnimationFrame(frame); }
+      hero.addEventListener('mousemove', function (e) {
+        var r = hero.getBoundingClientRect();
+        var nx = (e.clientX - r.left) / r.width - 0.5;
+        var ny = (e.clientY - r.top) / r.height - 0.5;
+        trx = (-ny * 5).toFixed(3); try_ = (nx * 6).toFixed(3);
+        tpx = nx.toFixed(3); tpy = ny.toFixed(3);
+        kick();
+      });
+      hero.addEventListener('mouseleave', function () {
+        trx = 0; try_ = 0; tpx = 0; tpy = 0; kick();
+      });
+    })();
+  </script>
+  
+  <script>
+    // Scroll FX: progress hairline + staggered reveals (motion-safe)
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var bar = document.getElementById('scroll-progress');
+      if (bar && !reduce) {
+        var ticking = false;
+        var upd = function () {
+          var h = document.documentElement;
+          var max = h.scrollHeight - h.clientHeight;
+          bar.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
+          ticking = false;
+        };
+        window.addEventListener('scroll', function () {
+          if (!ticking) { ticking = true; requestAnimationFrame(upd); }
+        }, { passive: true });
+        upd();
+      }
+      if (reduce) return;
+      var items = document.querySelectorAll(
+        '.section-header, .about-copy p, .about-affiliation-seal, .pillar-card,' +
+        '.cadre-view-toggle-bar, #cadre-cards-deck .cadre-fan-card, .calendar-card-box,' +
+        '.featured-head, #upcoming-events-cards, #calendar-days-grid, .site-footer .footer-top-row > *'
+      );
+      var counts = new Map();
+      items.forEach(function (el) {
+        el.classList.add('reveal');
+        var p = el.parentElement;
+        var n = (counts.get(p) || 0) + 1;
+        counts.set(p, n);
+        el.style.setProperty('--d', Math.min((n - 1) * 0.08, 0.4).toFixed(2) + 's');
+      });
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.remove('reveal'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var el = en.target;
+          io.unobserve(el);
+          el.classList.add('in');
+          setTimeout(function () { el.classList.remove('reveal', 'in'); el.style.removeProperty('--d'); }, 900);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+  
+  
+  
+  <script src="dragon.js"></script>
+</body>
+</html>
