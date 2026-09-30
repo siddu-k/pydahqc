@@ -1980,12 +1980,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const initUpcomingEventsCategoryFilters = () => {
     const filterContainer = document.getElementById('upcoming-events-category-filters');
-    if (!filterContainer) return;
+    if (!filterContainer || filterContainer.dataset.bound) return;
+    filterContainer.dataset.bound = 'true';
     const buttons = filterContainer.querySelectorAll('button[data-category]');
     buttons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        buttons.forEach((b) => b.classList.remove('active'));
+        buttons.forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
         activeCategoryFilter = (btn.getAttribute('data-category') || 'ALL').toUpperCase();
         renderUpcomingEvents(calendarEvents);
       });

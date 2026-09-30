@@ -266,6 +266,7 @@ main .gallery-filters .filter-pill, main #upcoming-events-category-filters .filt
   font-size: 0.74rem !important;
 }
 main .filter-pill.active, main .filter-pill:hover { background: #111214 !important; color: #fff !important; border-color: #111214 !important; }
+main #upcoming-events-category-filters .filter-pill.active, main #upcoming-events-category-filters .filter-pill:hover, main #upcoming-events-category-filters .filter-pill[aria-selected="true"] { background: #111214 !important; color: #fff !important; border-color: #111214 !important; }
 main .gallery-collage-grid { grid-auto-rows: 200px !important; gap: 1rem !important; }
 main .gallery-item { border: 1px solid #111214 !important; border-radius: 8px !important; }
 
